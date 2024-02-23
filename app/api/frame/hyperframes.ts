@@ -73,10 +73,10 @@ const frames: Record<string, HyperFrame> = {
         { label: 'Submit' },
       ],
       image: { src: `${NEXT_PUBLIC_URL}/chipotle.png`, aspectRatio: '1:1' },
-      input: { text: 'What is the password' },
+      input: { text: 'What is the password?' },
       postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=guess`,
     }),
-    1: 'cava',
+    1: 'start',
     2: text => checkForCorrectText('guess', text) ? 'key' : 'shack-bad-password',
   },
   'shack-bad-password': {
@@ -89,19 +89,19 @@ const frames: Record<string, HyperFrame> = {
       input: { text: 'Try again. What is the password?' },
       postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=shack-bad-password`,
     }),
-    1: 'chipotle',
+    1: 'start',
     2: text => checkForCorrectText('guess', text) ? 'key' : 'shack-bad-password',
   },
   'key': {
     frame: getFrameHtmlResponse({
       buttons: [
         { label: 'Go Back' },
-        { label: 'Winner!' },
+        { action: 'link', label: 'Winner!', target: 'https://www.chipotle.com' },
       ],
       image: { src: `${NEXT_PUBLIC_URL}/winner.png`, aspectRatio: '1:1' },
       postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=key`,
     }),
-    1: 'guess',
+    1: 'start',
   },
   // Add more frames as needed
 };
