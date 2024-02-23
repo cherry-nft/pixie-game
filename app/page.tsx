@@ -5,16 +5,16 @@ import { NEXT_PUBLIC_URL } from './config';
 const frameMetadata = getFrameMetadata({
   buttons: [
     {
-      label: 'CAVA',
+      label: 'Chipotle',
     },
     {
-      label: 'CHIPOTLE',
+      label: 'Cava',
     },
     {
-      label: 'SWEETGREEN',
+      label: 'Sweetgreen',
     },
     {
-      label: 'OLIVE GARDEN',
+      label: 'Olive Garden',
     },
   ],
   image: {
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   description: 'Pixies are yours to win!',
   openGraph: {
     title: 'HyperFrames!',
-    description: 'Time is a flat circle.',
+    description: 'Giving out free shit',
     images: [`${NEXT_PUBLIC_URL}/food-title.png`],
   },
   other: {
