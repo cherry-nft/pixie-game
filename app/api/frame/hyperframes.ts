@@ -47,21 +47,21 @@ const frames: Record<string, HyperFrame> = {
         { label: 'Sweetgreen' },
         { label: 'Olive Garden' }
       ],
-      image: { src: `${NEXT_PUBLIC_URL}/warpcast-superbowl-minting-2.png`, aspectRatio: '1.91:1' },
+      image: { src: `${NEXT_PUBLIC_URL}/warpcast-superbowl-minting-2.png`, aspectRatio: '1:1' },
       postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=start`,
     }),
-    1: 'cava',
-    2: 'chipotle',
+    1: 'chipotle',
+    2: 'cava',
     3: 'sweetgreen',
   },
-  'cava': {
+  'chipotle': {
     frame: getFrameHtmlResponse({
       buttons: [
         { label: 'Go Back' },
         { label: 'Guess' },
       ],
-      image: { src: `${NEXT_PUBLIC_URL}/cava.png`, aspectRatio: '1:1' },
-      postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=cava`,
+      image: { src: `${NEXT_PUBLIC_URL}/chipotle.png`, aspectRatio: '1:1' },
+      postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=chipotle`,
     }),
     1: 'start',
     2: 'guess',
