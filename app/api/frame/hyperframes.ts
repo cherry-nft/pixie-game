@@ -58,7 +58,7 @@ const frames: Record<string, HyperFrame> = {
     frame: getFrameHtmlResponse({
       buttons: [
         { label: 'Go Back' },
-        { label: 'Guess' },
+        { label: 'Select Chipotle' },
       ],
       image: { src: `${NEXT_PUBLIC_URL}/chipotle.png`, aspectRatio: '1:1' },
       postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=chipotle`,
@@ -108,7 +108,7 @@ const frames: Record<string, HyperFrame> = {
     frame: getFrameHtmlResponse({
       buttons: [
         { label: 'Go Back' },
-        { label: 'Guess' },
+        { label: 'Select Cava' },
       ],
       image: { src: `${NEXT_PUBLIC_URL}/cava.png`, aspectRatio: '1:1' },
       postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=cava`,
@@ -144,5 +144,47 @@ const frames: Record<string, HyperFrame> = {
     1: 'start', 
     2: 'cava-wrong-password',
   },
-  // Add more frames as needed
+
+  
+  'sweetgreen': {
+    frame: getFrameHtmlResponse({
+      buttons: [
+        { label: 'Go Back' },
+        { label: 'Select Sweetgreen' },
+      ],
+      image: { src: `${NEXT_PUBLIC_URL}/sweetgreen.png`, aspectRatio: '1:1' },
+      postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=sweetgreen`,
+    }),
+    1: 'start',
+    2: 'sweetgreen-guess', // Direct to a guess frame specific to Cava
+  },
+  
+  'sweetgreen-guess': {
+    frame: getFrameHtmlResponse({
+      buttons: [
+        { label: 'Go Back' },
+        { label: 'Submit' },
+      ],
+      image: { src: `${NEXT_PUBLIC_URL}/cava.png`, aspectRatio: '1:1' },
+      input: { text: 'What is the password?' },
+      postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=sweetgreen-guess`,
+    }),
+    1: 'sweetgreen',
+    2: 'sweetgreen-wrong-password', // Direct to a wrong password frame specific to Cava
+  },
+  
+  'sweetgreen-wrong-password': {
+    frame: getFrameHtmlResponse({
+      buttons: [
+        { label: 'Go Back' },
+        { label: 'Try Again' },
+      ],
+      image: { src: `${NEXT_PUBLIC_URL}/sorry.png`, aspectRatio: '1:1' },
+      input: { text: 'Incorrect. Try again or go back.' },
+      postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=sweetgreen-wrong-password`,
+    }),
+    1: 'start', 
+    2: 'sweetgreen-wrong-password',
+  },
+  
 };
