@@ -141,8 +141,8 @@ const frames: Record<string, HyperFrame> = {
       input: { text: 'Incorrect. Try again or go back.' },
       postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=cava-wrong-password`,
     }),
-    1: 'start', // Allow the user to try guessing again
-    2: 'cava-guess', // Allow the user to go back to the main Cava frame
+    1: 'start', 
+    2: 'cava-wrong-password',
   },
   // Add more frames as needed
 };
