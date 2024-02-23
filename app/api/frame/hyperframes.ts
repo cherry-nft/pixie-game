@@ -53,7 +53,9 @@ const frames: Record<string, HyperFrame> = {
     1: 'chipotle',
     2: 'cava',
     3: 'sweetgreen',
+    4: 'olive-garden',
   },
+  
   'chipotle': {
     frame: getFrameHtmlResponse({
       buttons: [
