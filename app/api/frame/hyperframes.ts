@@ -11,7 +11,7 @@ interface HyperFrame {
 
 // Define the checkForCorrectText function
 function checkForCorrectText(room: string, text: string): boolean {
-  if (room === 'shack' && text.trim().toLowerCase() === 'degen') {
+  if (room === 'chipotle' && text.trim().toLowerCase() === 'iloveyou') {
     return true;
   }
   return false;
@@ -42,44 +42,43 @@ const frames: Record<string, HyperFrame> = {
   'start': {
     frame: getFrameHtmlResponse({
       buttons: [
-        { label: 'Road' },
-        { label: 'Woods' },
-        { label: 'Cave' },
-        { action: 'link', label: 'TODO', target: 'https://www.playground.ooo' },
+        { label: 'CAVA' },
+        { label: 'CHIPOTLE' },
+        { label: 'SWEETGREEN' },
+        { label: 'OLIVE GARDEN' },
       ],
-      image: { src: `${NEXT_PUBLIC_URL}/warpcast-superbowl-minting-2.png`, aspectRatio: '1.91:1' },
+      image: { src: `${NEXT_PUBLIC_URL}/food-title.png`, aspectRatio: '1:1' },
       postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=start`,
     }),
-    1: 'road',
-    2: 'woods-bear',
-    3: 'cave-1',
+    1: 'cava',
+    2: 'chipotle',
+    3: 'sweetgreen',
+    4: 'olive-garden',
   },
-  'road': {
+  'cava': {
     frame: getFrameHtmlResponse({
       buttons: [
         { label: 'Go Back' },
-        { label: 'Shack' },
-        { label: 'Forward' },
+        { label: 'Guess' },
       ],
-      image: { src: `${NEXT_PUBLIC_URL}/hyperframes-test.png`, aspectRatio: '1.91:1' },
-      postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=road`,
+      image: { src: `${NEXT_PUBLIC_URL}/cava.png`, aspectRatio: '1:1' },
+      postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=cava`,
     }),
     1: 'start',
-    2: 'shack',
-    3: 'desert-road',
+    2: 'guess',
   },
-  'shack': {
+  'guess': {
     frame: getFrameHtmlResponse({
       buttons: [
         { label: 'Go Back' },
-        { label: 'Door' },
+        { label: 'Submit' },
       ],
-      image: { src: `${NEXT_PUBLIC_URL}/hyperframes-test-2.png`, aspectRatio: '1.91:1' },
-      input: { text: 'What is the password?' },
-      postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=shack`,
+      image: { src: `${NEXT_PUBLIC_URL}/cava.png`, aspectRatio: '1:1' },
+      input: { text: 'What is the largest company in Europe by market cap?' },
+      postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=cava`,
     }),
-    1: 'road',
-    2: text => checkForCorrectText('shack', text) ? 'key' : 'shack-bad-password',
+    1: 'cava',
+    2: text => checkForCorrectText('chipotle', text) ? 'key' : 'shack-bad-password',
   },
   'shack-bad-password': {
     frame: getFrameHtmlResponse({
@@ -87,11 +86,11 @@ const frames: Record<string, HyperFrame> = {
         { label: 'Go Back' },
         { label: 'Try Again' },
       ],
-      image: { src: `${NEXT_PUBLIC_URL}/hyperframes-test-3.png`, aspectRatio: '1.91:1' },
-      input: { text: 'Try again. What is the password?' },
+      image: { src: `${NEXT_PUBLIC_URL}/sorry.png`, aspectRatio: '1:1' },
+      input: { text: 'Try again. You got it wrong!' },
       postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=shack-bad-password`,
     }),
-    1: 'road',
+    1: 'cava',
     2: text => checkForCorrectText('shack', text) ? 'key' : 'shack-bad-password',
   },
   'key': {
@@ -100,10 +99,160 @@ const frames: Record<string, HyperFrame> = {
         { label: 'Go Back' },
         { label: 'TODO' },
       ],
-      image: { src: `${NEXT_PUBLIC_URL}/hyperframes-test-4.png`, aspectRatio: '1.91:1' },
+      image: { src: `${NEXT_PUBLIC_URL}/winner.png`, aspectRatio: '1:1' },
       postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=key`,
     }),
-    1: 'shack',
+    1: 'guess',
   },
-  // Add more frames as needed
+  
+  'sweetgreen': {
+    frame: getFrameHtmlResponse({
+      buttons: [
+        { label: 'Go Back' },
+        { label: 'Guess' },
+      ],
+      image: { src: `${NEXT_PUBLIC_URL}/sweetgreen.png`, aspectRatio: '1:1' },
+      postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=sweetgreen`,
+    }),
+    1: 'start',
+    2: 'guess',
+  },
+  'guess': {
+    frame: getFrameHtmlResponse({
+      buttons: [
+        { label: 'Go Back' },
+        { label: 'Submit' },
+      ],
+      image: { src: `${NEXT_PUBLIC_URL}/sweetgreen.png`, aspectRatio: '1:1' },
+      input: { text: 'What is the largest company in Europe by market cap?' },
+      postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=guess`,
+    }),
+    1: 'cava',
+    2: text => checkForCorrectText('chipotle', text) ? 'key' : 'shack-bad-password',
+  },
+  'shack-bad-password': {
+    frame: getFrameHtmlResponse({
+      buttons: [
+        { label: 'Go Back' },
+        { label: 'Try Again' },
+      ],
+      image: { src: `${NEXT_PUBLIC_URL}/sorry.png`, aspectRatio: '1:1' },
+      input: { text: 'Try again. You got it wrong!' },
+      postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=shack-bad-password`,
+    }),
+    1: 'cava',
+    2: text => checkForCorrectText('shack', text) ? 'key' : 'shack-bad-password',
+  },
+  'key': {
+    frame: getFrameHtmlResponse({
+      buttons: [
+        { label: 'Go Back' },
+        { label: 'TODO' },
+      ],
+      image: { src: `${NEXT_PUBLIC_URL}/winner.png`, aspectRatio: '1:1' },
+      postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=key`,
+    }),
+    1: 'guess',
+  },
+
+  'olive-garden': {
+    frame: getFrameHtmlResponse({
+      buttons: [
+        { label: 'Go Back' },
+        { label: 'Guess' },
+      ],
+      image: { src: `${NEXT_PUBLIC_URL}/olive-garden.png`, aspectRatio: '1:1' },
+      postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=olive-garden`,
+    }),
+    1: 'start',
+    2: 'guess',
+  },
+  'guess': {
+    frame: getFrameHtmlResponse({
+      buttons: [
+        { label: 'Go Back' },
+        { label: 'Submit' },
+      ],
+      image: { src: `${NEXT_PUBLIC_URL}/chipotle.png`, aspectRatio: '1:1' },
+      input: { text: 'What is the largest company in Europe by market cap?' },
+      postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=guess`,
+    }),
+    1: 'cava',
+    2: text => checkForCorrectText('chipotle', text) ? 'key' : 'shack-bad-password',
+  },
+  'shack-bad-password': {
+    frame: getFrameHtmlResponse({
+      buttons: [
+        { label: 'Go Back' },
+        { label: 'Try Again' },
+      ],
+      image: { src: `${NEXT_PUBLIC_URL}/sorry.png`, aspectRatio: '1:1' },
+      input: { text: 'Try again. You got it wrong!' },
+      postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=shack-bad-password`,
+    }),
+    1: 'cava',
+    2: text => checkForCorrectText('shack', text) ? 'key' : 'shack-bad-password',
+  },
+  'key': {
+    frame: getFrameHtmlResponse({
+      buttons: [
+        { label: 'Go Back' },
+        { label: 'TODO' },
+      ],
+      image: { src: `${NEXT_PUBLIC_URL}/winner.png`, aspectRatio: '1:1' },
+      postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=key`,
+    }),
+    1: 'guess',
+  },
+
+  'olive-garden': {
+    frame: getFrameHtmlResponse({
+      buttons: [
+        { label: 'Go Back' },
+        { label: 'Guess' },
+      ],
+      image: { src: `${NEXT_PUBLIC_URL}/cava.png`, aspectRatio: '1:1' },
+      postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=chipotle`,
+    }),
+    1: 'start',
+    2: 'guess',
+  },
+  'guess': {
+    frame: getFrameHtmlResponse({
+      buttons: [
+        { label: 'Go Back' },
+        { label: 'Submit' },
+      ],
+      image: { src: `${NEXT_PUBLIC_URL}/chipotle.png`, aspectRatio: '1:1' },
+      input: { text: 'What is the largest company in Europe by market cap?' },
+      postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=guess`,
+    }),
+    1: 'cava',
+    2: text => checkForCorrectText('shack', text) ? 'key' : 'shack-bad-password',
+  },
+  'shack-bad-password': {
+    frame: getFrameHtmlResponse({
+      buttons: [
+        { label: 'Go Back' },
+        { label: 'Try Again' },
+      ],
+      image: { src: `${NEXT_PUBLIC_URL}/sorry.png`, aspectRatio: '1:1' },
+      input: { text: 'Try again. You got it wrong!' },
+      postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=shack-bad-password`,
+    }),
+    1: 'cava',
+    2: text => checkForCorrectText('shack', text) ? 'key' : 'shack-bad-password',
+  },
+  'key': {
+    frame: getFrameHtmlResponse({
+      buttons: [
+        { label: 'Go Back' },
+        { label: 'TODO' },
+      ],
+      image: { src: `${NEXT_PUBLIC_URL}/winner.png`, aspectRatio: '1:1' },
+      postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=key`,
+    }),
+    1: 'guess',
+  },
+
 };

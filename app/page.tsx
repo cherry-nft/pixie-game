@@ -5,34 +5,34 @@ import { NEXT_PUBLIC_URL } from './config';
 const frameMetadata = getFrameMetadata({
   buttons: [
     {
-      label: 'Road',
+      label: 'CAVA',
     },
     {
-      label: 'Woods',
+      label: 'CHIPOTLE',
     },
     {
-      label: 'Cave',
+      label: 'SWEETGREEN',
     },
     {
       action: 'link',
-      label: 'TODO',
+      label: 'OLIVE GARDEN',
       target: 'https://www.google.com',
     },
   ],
   image: {
-    src: `${NEXT_PUBLIC_URL}/warpcast-superbowl-minting-2.png`,
-    aspectRatio: '1.91:1',
+    src: `${NEXT_PUBLIC_URL}/food-title.png`,
+    aspectRatio: '1:1',
   },
   postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=start`,
 });
 
 export const metadata: Metadata = {
   title: 'HyperFrames!',
-  description: 'Time is a flat circle.',
+  description: 'Pixies are yours to win!',
   openGraph: {
     title: 'HyperFrames!',
     description: 'Time is a flat circle.',
-    images: [`${NEXT_PUBLIC_URL}/hyperframes-test.png`],
+    images: [`${NEXT_PUBLIC_URL}/food-title.png`],
   },
   other: {
     ...frameMetadata,
