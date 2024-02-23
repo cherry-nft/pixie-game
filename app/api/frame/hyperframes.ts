@@ -103,5 +103,46 @@ const frames: Record<string, HyperFrame> = {
     }),
     1: 'start',
   },
+
+  'cava': {
+    frame: getFrameHtmlResponse({
+      buttons: [
+        { label: 'Go Back' },
+        { label: 'Guess' },
+      ],
+      image: { src: `${NEXT_PUBLIC_URL}/cava.png`, aspectRatio: '1:1' },
+      postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=cava`,
+    }),
+    1: 'start',
+    2: 'cava-guess', // Direct to a guess frame specific to Cava
+  },
+  
+  'cava-guess': {
+    frame: getFrameHtmlResponse({
+      buttons: [
+        { label: 'Go Back' },
+        { label: 'Submit' },
+      ],
+      image: { src: `${NEXT_PUBLIC_URL}/cava.png`, aspectRatio: '1:1' },
+      input: { text: 'What is the password?' },
+      postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=cava-guess`,
+    }),
+    1: 'cava',
+    2: 'cava-wrong-password', // Direct to a wrong password frame specific to Cava
+  },
+  
+  'cava-wrong-password': {
+    frame: getFrameHtmlResponse({
+      buttons: [
+        { label: 'Go Back' },
+        { label: 'Try Again' },
+      ],
+      image: { src: `${NEXT_PUBLIC_URL}/sorry.png`, aspectRatio: '1:1' },
+      input: { text: 'Incorrect. Try again or go back.' },
+      postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=cava-wrong-password`,
+    }),
+    1: 'start', // Allow the user to try guessing again
+    2: 'cava-guess', // Allow the user to go back to the main Cava frame
+  },
   // Add more frames as needed
 };
