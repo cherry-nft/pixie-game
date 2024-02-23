@@ -25,18 +25,6 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const url = new URL(req.url);
   const queryParams = url.searchParams;
   const frame = queryParams.get('frame');
-  const restaurant = queryParams.get('restaurant'); // Get the restaurant from query params
-  const inputText = message.input?.trim().toLowerCase(); // Assume message.input is the text entered by the user
-
-  if (frame === 'guess' && restaurant) {
-    if (checkForCorrectText(restaurant, inputText)) {
-      // Redirect to the 'key' frame if the password is correct
-      return new NextResponse(frames['key'].frame);
-    } else {
-      // Redirect to the 'shack-bad-password' frame if the password is incorrect
-      return new NextResponse(frames['shack-bad-password'].frame);
-    }
-  }
 
   // If the 'frame' query parameter is missing, return a 404 response
   if (!frame) {
