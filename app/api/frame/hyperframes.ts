@@ -9,12 +9,9 @@ interface HyperFrame {
   4?: string | ((text: string) => string);
 }
 
-// Define the checkForCorrectText function
-function checkForCorrectText(room: string, text: string): boolean {
-  if (room === 'guess' && text.trim().toLowerCase() === 'iloveyou') {
-    return true;
-  }
-  return false;
+function checkForCorrectText(restaurant: string, text: string): boolean {
+  // Only the guess in the 'chipotle' frame with the correct password should return true
+  return restaurant === 'chipotle' && text.trim().toLowerCase() === 'iloveyou';
 }
 
 
@@ -197,7 +194,7 @@ const frames: Record<string, HyperFrame> = {
     frame: getFrameHtmlResponse({
       buttons: [
         { label: 'Go Back' },
-        { action: 'link', label: 'TODO', target = 'https://www.chipotle.com' },
+        { action: 'link', label: 'TODO', target: 'https://www.chipotle.com' },
       ],
       image: { src: `${NEXT_PUBLIC_URL}/winner.png`, aspectRatio: '1:1' },
       postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=key`,
@@ -247,7 +244,7 @@ const frames: Record<string, HyperFrame> = {
     frame: getFrameHtmlResponse({
       buttons: [
         { label: 'Go Back' },
-        { action: 'link', label: 'TODO', target = 'https://www.chipotle.com' },
+        { action: 'link', label: 'TODO', target: 'https://www.chipotle.com' },
       ],
       image: { src: `${NEXT_PUBLIC_URL}/winner.png`, aspectRatio: '1:1' },
       postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=key`,
