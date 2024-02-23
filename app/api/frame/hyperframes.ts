@@ -200,18 +200,18 @@ const frames: Record<string, HyperFrame> = {
     2: 'olive-garden-guess', // Direct to a guess frame specific to Cava
   },
   
-  'olive-garden-guess': {
+  'sweetgreen-guess': {
     frame: getFrameHtmlResponse({
       buttons: [
         { label: 'Go Back' },
         { label: 'Submit' },
       ],
-      image: { src: `${NEXT_PUBLIC_URL}/olive-garden.png`, aspectRatio: '1:1' },
+      image: { src: `${NEXT_PUBLIC_URL}/sweetgreen.png`, aspectRatio: '1:1' },
       input: { text: 'What is the password?' },
-      postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=olive-garden-guess`,
+      postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=sweetgreen-guess`,
     }),
-    1: 'olive-garden',
-    2: 'olive-garden-wrong-password', // Direct to a wrong password frame specific to Cava
+    1: 'sweetgreen',
+    2: 'sweetgreen-wrong-password', // Direct to a wrong password frame specific to Cava
   },
   
   'sweetgreen-wrong-password': {
@@ -222,10 +222,10 @@ const frames: Record<string, HyperFrame> = {
       ],
       image: { src: `${NEXT_PUBLIC_URL}/sorry.png`, aspectRatio: '1:1' },
       input: { text: 'Incorrect. Try again or go back.' },
-      postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=olive-garden-wrong-password`,
+      postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=sweetgreen-wrong-password`,
     }),
     1: 'start', 
-    2: 'olive-garden-wrong-password',
+    2: 'sweetgreen-wrong-password',
   },
   
 };
