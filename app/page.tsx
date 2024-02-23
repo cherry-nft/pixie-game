@@ -14,9 +14,7 @@ const frameMetadata = getFrameMetadata({
       label: 'SWEETGREEN',
     },
     {
-      action: 'link',
       label: 'OLIVE GARDEN',
-      target: 'https://www.google.com',
     },
   ],
   image: {
