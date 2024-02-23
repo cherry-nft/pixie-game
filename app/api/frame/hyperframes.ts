@@ -4,9 +4,9 @@ import { NEXT_PUBLIC_URL } from '../../config'; // Ensure this path is correct b
 interface HyperFrame {
   frame: string;
   1: string | ((text: string) => string);
-  2: string | ((text: string) => string);
-  3: string | ((text: string) => string);
-  4: string | ((text: string) => string);
+  2?: string | ((text: string) => string);
+  3?: string | ((text: string) => string);
+  4?: string | ((text: string) => string);
 }
 
 // Define the checkForCorrectText function
@@ -57,8 +57,8 @@ const frames: Record<string, HyperFrame> = {
   'chipotle': {
     frame: getFrameHtmlResponse({
       buttons: [
-        { action: 'link', label: 'Go Back', target: `${NEXT_PUBLIC_URL}/api/frame?frame=start` },
-        { action: 'link', label: 'Guess', target: `${NEXT_PUBLIC_URL}/api/frame?frame=guess`
+        { label: 'Go Back' },
+        { label: 'Guess' },
       ],
       image: { src: `${NEXT_PUBLIC_URL}/chipotle.png`, aspectRatio: '1:1' },
       postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=chipotle`,
@@ -76,7 +76,7 @@ const frames: Record<string, HyperFrame> = {
       input: { text: 'What is the password' },
       postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=guess`,
     }),
-    1: 'chipotle',
+    1: 'cava',
     2: text => checkForCorrectText('guess', text) ? 'key' : 'shack-bad-password',
   },
   'shack-bad-password': {
