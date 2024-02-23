@@ -89,7 +89,7 @@ const frames: Record<string, HyperFrame> = {
       input: { text: 'Try again. What is the password?' },
       postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=shack-bad-password`,
     }),
-    1: 'cava',
+    1: 'chipotle',
     2: text => checkForCorrectText('guess', text) ? 'key' : 'shack-bad-password',
   },
   'key': {
